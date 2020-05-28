@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import { I18nextProvider} from 'react-i18next';
+import i18n from './services/i18n';
+
+
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <I18nextProvider i18n={i18n}>
+      <App />
+    </I18nextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

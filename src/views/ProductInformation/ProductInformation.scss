@@ -1,0 +1,52 @@
+@import 'src/styles/colors.scss';
+
+.modal-body {
+  height: 100%;
+
+  .modal-body_content {
+    margin-bottom: 4rem;
+
+    .modal-body_content-same-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+
+      .modal-body_content-same-row_paragraph {
+        padding: 1rem 2rem;
+        width: 50%;
+      }
+    }
+
+    .modal-body_content_paragraph {
+			margin-bottom: 2rem;
+			text-align: start;
+    }    
+  }
+  
+  .modal-body_content_check {
+    align-items: center;
+    color: $primary-color;
+    display: flex;
+    flex-flow: row;
+    font-size: 1rem;
+    justify-content: flex-start;
+    text-align: justify;
+  }
+
+	.modal-body_footer {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+@media screen and (max-width: 500px) {
+  .modal-body {
+		.modal-body_content{
+			.modal-body_content-same-row {
+				.modal-body_content-same-row_paragraph {
+					padding: 1rem;
+				}
+			}
+		} 
+  }
+}

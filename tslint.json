@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint", 
+    "plugin:prettier/recommended" 
+  ],
+  "rules": {
+    "interface-over-type-literal": false,
+    "jsx-no-lambda": false,
+    "no-console": true
+  },
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.ts",
+      "node_modules/**/*.ts",
+      "coverage/lcov-report/*.js",
+      "src/mocks/*.{ts,json}"
+    ]
+  }
+}
