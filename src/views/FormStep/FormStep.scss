@@ -1,0 +1,56 @@
+@import 'src/styles/colors.scss';
+
+.modal-body_content {
+  text-align: left;
+
+  .modal-body_content_inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 1rem 0 2rem 0;
+
+    .modal-body_content_inputs_error {
+      color: $primary-color;
+      font-size: 0.8rem;
+    }
+
+    .modal-body_content_inputs-password {
+      display: flex;
+      flex-direction: column;
+      margin: 0 2rem 0 0;
+      width: 20rem;
+    }
+
+    .modal-body_content_inputs-text {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      span {
+        align-self: flex-end;
+        color: $background-header-color;
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 0.6rem 0;
+      }
+    }
+
+    label {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0.6rem 0;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .modal-body_content {
+    .modal-body_content_inputs {
+      flex-direction: column;
+
+      .modal-body_content_inputs-password {
+        margin: 0;
+      }
+    }
+  }
+}

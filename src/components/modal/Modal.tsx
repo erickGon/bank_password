@@ -2,93 +2,96 @@ import React from 'react';
 
 import './Modal.scss';
 
-import steps from '../../mocks/stepsList';
+import StepActionsBuilder from '../../services/StepsActionsBuilder';
 
-import StepType from '../../types/StepType';
-
-import Header from '../header/Header';
 import ProductInformation from '../../views/ProductInformation/ProductInformation';
 import FormStep from '../../views/FormStep/FormStep';
+import FeedBack from '../../views/Feedback/Feedback';
 
+import Header from '../header/Header';
+import StepClass from '../../types/StepClass';
 
 type Props = {
-	handleCancel(): void;
+  handleCancel(): void;
 };
 
 type State = {
-  currenStep: StepType;
-  steps: StepType[];
+  currenStep: StepClass;
+  steps: StepClass[];
+  statusCode: number;
 };
 
 class Modal extends React.Component<Props, State> {
   public state: State = {
-    currenStep: {...steps[0]},
-    steps: [...steps],
+    currenStep: new StepActionsBuilder().firstStep(),
+    steps: new StepActionsBuilder().generateSteps(),
+    statusCode: 0,
   };
 
-  public cancel = (): void =>  {
-    console.log(this.state.steps, steps);
-    // this.setState({steps: steps});
+  public cancel = (): void => {
     this.props.handleCancel();
-  }
+  };
 
-	public showStepView = (step: StepType): JSX.Element => {
+  public showStepView = (step: StepClass): JSX.Element => {
     const views = [
-      <ProductInformation cancel={this.cancel} next={this.nextStep}/>,
-      <FormStep cancel={this.cancel} next={this.nextStep}/>,
-      <ProductInformation cancel={this.cancel} next={this.nextStep}/>
-    ]
+      <ProductInformation cancel={this.cancel} next={this.nextStep} />,
+      <FormStep cancel={this.cancel} next={this.nextStep} />,
+      <FeedBack cancel={this.cancel} code={this.state.statusCode} />,
+    ];
 
-		const view = views[(step.value - 1)];
-		return view;
-  }
-  
-  public nextStep = (): void => {
+    const view = views[step.value - 1];
+    return view;
+  };
 
-    const nextStep = this.state.steps.filter((step: StepType) => {
-      return step.value === (this.state.currenStep.value + 1);
-    })
+  public nextStep = (code?: number): void => {
+    if (code) {
+      this.setState({ statusCode: code });
+    }
 
-    if(nextStep.length)  {
+    const nextStep = this.state.steps.filter((step: StepClass) => {
+      return step.value === this.state.currenStep.value + 1;
+    });
 
+    if (nextStep.length) {
       const oldStep = this.state.currenStep;
 
       const currenStep = nextStep[0];
-      currenStep.active = true;
-      currenStep.passed = false;
+
+      currenStep.stepActive();
 
       this.modifyArrayOfSteps(currenStep, oldStep);
 
-      this.setState({currenStep: currenStep});
+      this.setState({ currenStep: currenStep });
     }
-  }
+  };
 
-  private modifyArrayOfSteps = (currenStep: StepType, oldStep: StepType) => {
+  private modifyArrayOfSteps = (currentStep: StepClass, oldStep: StepClass) => {
     const arrayOfSteps = [...this.state.steps];
 
-    arrayOfSteps.map((value: StepType, key: number) => {
-      arrayOfSteps[key].active = false;
+    arrayOfSteps.map(
+      (value: StepClass, key: number): StepClass => {
+        if (oldStep.value === value.value) {
+          value.stepPassed();
+        }
 
-      if(oldStep.value === value.value) {
-        arrayOfSteps[key].passed = true;
+        if (currentStep.value === value.value) {
+          value.stepActive();
+        }
+        return value;
       }
+    );
 
-      if(currenStep.value === value.value) {
-        arrayOfSteps[key].active = true;
-      }
-    });
-
-    this.setState({steps: arrayOfSteps})
-  }
+    this.setState({ steps: arrayOfSteps });
+  };
 
   public render() {
     return (
-    	<div className="window">
+      <div className="window">
         <div className="window_modal">
           <Header steps={this.state.steps}></Header>
 
           <div className="window_modal-body">
-						{this.showStepView(this.state.currenStep)}
+            {this.showStepView(this.state.currenStep)}
           </div>
         </div>
       </div>

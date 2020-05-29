@@ -1,15 +1,15 @@
 @import '../assets/icomoon/style.css';
 
 body {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Quicksand', sans-serif;
-  font-size: 60%;
-  margin: 0;
-  width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 60%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  height: 100vh;
+  margin: 0;
+  width: 100%;
 }
 
 a {
@@ -21,7 +21,7 @@ button {
   cursor: pointer;
 
   &:focus {
-    outline: 0
+    outline: 0;
   }
 }
 
@@ -35,4 +35,12 @@ h3 {
 
 p {
   font-size: 1rem;
+}
+
+input:focus {
+  border-color: red;
+}
+
+input:active {
+  border-color: brown;
 }

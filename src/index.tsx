@@ -4,10 +4,8 @@ import './styles/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { I18nextProvider} from 'react-i18next';
+import { I18nextProvider } from 'react-i18next';
 import i18n from './services/i18n';
-
-
 
 ReactDOM.render(
   <React.StrictMode>

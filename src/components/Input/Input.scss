@@ -1,12 +1,28 @@
 @import 'src/styles/colors.scss';
 
-.main-input {
-  background-color: $white;
-  border: 0.2rem solid $background-header-color;
-  border-radius: 2px;
-  color: $secondary-color;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
+.input-container_main-input {
+  align-items: center;
+  display: flex;
+  width: 100%;
+
+  .main-input {
+    background-color: $white;
+    border: 0.1rem solid $background-header-color;
+    border-radius: 2px;
+    color: $secondary-color;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+    width: 100%;
+  }
+
+  button {
+    padding: 0;
+
+    i {
+      font-size: 1.4rem;
+      margin-left: -2.4rem;
+    }
+  }
 }

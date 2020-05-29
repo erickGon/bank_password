@@ -6,7 +6,7 @@ import Header from './components/header/Header';
 import Button from './components/button/Button';
 import Modal from './components/modal/Modal';
 
-import i18next from "i18next";
+import i18next from 'i18next';
 
 type Props = {};
 
@@ -16,14 +16,12 @@ type State = {
 };
 
 class App extends React.Component<Props, State> {
-
   public state: State = {
     showModal: false,
-    buttonText: i18next.t('start')
+    buttonText: i18next.t('start'),
   };
 
   public toggleModal = (): void => {
-    console.log('toggleModal');
     this.setState({ showModal: !this.state.showModal });
   };
 
@@ -42,7 +40,9 @@ class App extends React.Component<Props, State> {
         <footer className="app_footer-bottom">
           <p>Openbank S.A.</p>
         </footer>
-        {this.state.showModal ? <Modal handleCancel={this.toggleModal}/> : null}
+        {this.state.showModal ? (
+          <Modal handleCancel={this.toggleModal} />
+        ) : null}
       </div>
     );
   }

@@ -22,7 +22,8 @@ class Header extends React.Component<Props, State> {
       ? 'main-header_steps-cicle main-header_steps-cicle-active'
       : 'main-header_steps-cicle ';
 
-      if (step.passed) cssClass = 'main-header_steps-cicle main-header_steps-cicle-passed';
+    if (step.passed)
+      cssClass = 'main-header_steps-cicle main-header_steps-cicle-passed';
 
     return cssClass;
   };

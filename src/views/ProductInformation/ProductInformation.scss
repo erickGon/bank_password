@@ -18,11 +18,11 @@
     }
 
     .modal-body_content_paragraph {
-			margin-bottom: 2rem;
-			text-align: start;
-    }    
+      margin-bottom: 2rem;
+      text-align: start;
+    }
   }
-  
+
   .modal-body_content_check {
     align-items: center;
     color: $primary-color;
@@ -31,22 +31,26 @@
     font-size: 1rem;
     justify-content: flex-start;
     text-align: justify;
+
+    .modal-body_content_check_input {
+      width: 50px;
+    }
   }
 
-	.modal-body_footer {
-		display: flex;
-		justify-content: space-between;
-	}
+  .modal-body_footer {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 @media screen and (max-width: 500px) {
   .modal-body {
-		.modal-body_content{
-			.modal-body_content-same-row {
-				.modal-body_content-same-row_paragraph {
-					padding: 1rem;
-				}
-			}
-		} 
+    .modal-body_content {
+      .modal-body_content-same-row {
+        .modal-body_content-same-row_paragraph {
+          padding: 1rem;
+        }
+      }
+    }
   }
 }

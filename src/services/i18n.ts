@@ -7,27 +7,25 @@ import esTranslations from '../locale/es';
 console.log(esTranslations);
 
 const resources = {
-	en: {translation: enTranslations},
-	es: {translation: esTranslations},
+  en: { translation: enTranslations },
+  es: { translation: esTranslations },
 };
-
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-		resources,
-		lng: 'es',
+    resources,
+    lng: 'es',
     fallbackLng: 'es',
-		debug: true,
-		keySeparator: '.',
+    debug: true,
+    keySeparator: '.',
     interpolation: {
       escapeValue: false,
     },
     react: {
-			wait: true,
-		},
-	});
-	
+      wait: true,
+    },
+  });
 
 export default i18n;

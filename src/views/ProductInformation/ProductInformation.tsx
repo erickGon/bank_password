@@ -24,14 +24,14 @@ class ProductInformation extends React.Component<Props, State> {
   };
 
   public next = () => {
-    if(!this.state.disable) {
-      console.log("next");
+    if (!this.state.disable) {
+      console.log('next');
       this.props.next();
     }
   };
 
   public handleCheck = (event: React.FormEvent<HTMLInputElement>): void => {
-    this.setState({disable: !event.currentTarget.checked})
+    this.setState({ disable: !event.currentTarget.checked });
   };
 
   public render() {
@@ -60,12 +60,14 @@ class ProductInformation extends React.Component<Props, State> {
             <p>{i18next.t('step1.text2')}</p>
           </section>
           <section className="modal-body_content_check">
-            <Input
-              name="check"
-              placeholder={i18next.t('step1.textCheck')}
-              type="checkbox"
-              handleChange={this.handleCheck}
-            />
+            <div className="modal-body_content_check_input">
+              <Input
+                name="check"
+                placeholder={i18next.t('step1.textCheck')}
+                type="checkbox"
+                handleChange={this.handleCheck}
+              />
+            </div>
             <label htmlFor="check">{i18next.t('step1.textCheck')}</label>
           </section>
         </section>

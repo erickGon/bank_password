@@ -1,60 +1,60 @@
 @import 'src/styles/colors.scss';
 
 button {
-	border: 0;
-	font-size: 1rem;
-	font-weight: bold;
-	transition: all 0.2s;
+  border: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.2s;
 
-	&:hover {
+  &:hover {
     opacity: 70%;
   }
 
   &:active {
     opacity: 100%;
-	}
+  }
 
-	&:disabled {
-		background-color: $black;
-		color: $white;
-		cursor: not-allowed;
-		opacity: 50%;
-	}
-	
-	i {
-		vertical-align: middle;
-	}
+  &:disabled {
+    background-color: $black;
+    color: $white;
+    cursor: not-allowed;
+    opacity: 50%;
+  }
 
-	span {
-		vertical-align: middle;
-	}
+  i {
+    vertical-align: middle;
+  }
+
+  span {
+    vertical-align: middle;
+  }
 }
 
 .primary-button {
   background-color: $white;
   color: $primary-color;
-	
+
   .primary-button_text {
     margin-right: 0.4rem;
-	}
+  }
 }
 
 .secondary-button {
-	border-radius: 0.2rem;
-	color: $white;
-	padding: 0.8rem 1.4rem;
   background-color: $secondary-color;
-	
+  border-radius: 0.2rem;
+  color: $white;
+  padding: 0.8rem 1.4rem;
+
   .primary-button_text {
     margin-right: 0.4rem;
-	}
+  }
 }
 
 .secondary-button-invert {
   background-color: $white;
   color: $secondary-color;
- 
+
   .primary-button_text {
     margin-right: 0.4rem;
-	}
+  }
 }

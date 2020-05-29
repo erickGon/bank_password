@@ -8,7 +8,7 @@ type Props = {
   icon?: string;
   class?: string;
   click: any;
-  disable?: boolean
+  disable?: boolean;
 };
 
 class Button extends React.Component<Props> {

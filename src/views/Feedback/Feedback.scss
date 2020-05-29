@@ -1,0 +1,19 @@
+@import 'src/styles/colors.scss';
+
+.modal-body_content {
+  .modal-body_content_feedback {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+    i {
+      color: $primary-color;
+      font-size: 4rem;
+      margin-right: 2rem;
+    }
+  }
+
+  .modal-body_footer {
+    text-align: end;
+  }
+}

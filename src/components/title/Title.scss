@@ -1,19 +1,19 @@
 @import 'src/styles/colors.scss';
 
 .title {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
 
-    h2 {
-      text-align: start;
-      margin: 0.6rem 0;
-    }
-
-    .title_underline {
-      background-color: $highlighted-title-blue-color;
-      width: 3rem;
-      height: 0.2rem;
-    }
+  h2 {
+    margin: 0.6rem 0;
+    text-align: start;
   }
+
+  .title_underline {
+    background-color: $highlighted-title-blue-color;
+    height: 0.2rem;
+    width: 3rem;
+  }
+}
